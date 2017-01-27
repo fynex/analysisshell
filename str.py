@@ -55,10 +55,10 @@ def url_dec(in_str):
 
 
 def path_win2unix(str_path):
-    return r"{}".format(str_path).replace("\\","/")
+    return "/".join( str_path.split("\\") )
 
 def path_unix2win(str_path):
-    return r"{}".format(str_path).replace("\\","/")
+    return "\\".join( str_path.split("/") )
 
 
 def hexstr2ascii(data):
