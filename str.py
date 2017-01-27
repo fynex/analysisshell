@@ -54,6 +54,12 @@ def url_dec(in_str):
     return urllib.unquote(in_str)
 
 
+def path_win2unix(str_path):
+    return r"{}".format(str_path).replace("\\","/")
+
+def path_unix2win(str_path):
+    return r"{}".format(str_path).replace("\\","/")
+
 
 def hexstr2ascii(data):
     if data.startswith("0x"):
