@@ -13,6 +13,7 @@ import str
 import obfus
 import file
 import pkgutil
+import req
 import backdoor.unix
 import attack.php
 
