@@ -20,7 +20,7 @@ except ImportError:
 
 
 def nmap_increase_readability(data_str):
-    return a.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ")
+    return data_str.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ")
     
 
 
