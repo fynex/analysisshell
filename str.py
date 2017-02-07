@@ -19,6 +19,9 @@ except ImportError:
     sys.exit(-1)
 
 
+def nmap_increase_readability(data_str):
+    return a.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ")
+    
 
 
 def hash_md5(data):
