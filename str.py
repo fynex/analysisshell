@@ -18,11 +18,17 @@ except ImportError:
     print "sudo pip install capstone"
     sys.exit(-1)
 
+    
+    
+def nmap_parse_ports(ports_string):
+    return [ e.split("/")[0] for e in a.split("\n") ]
 
-def nmap_increase_readability(data_str):
+
+def nmap_parse_unknown_service(data_str):
     return data_str.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ").replace("\\0","")
     
 
+    
 
 def hash_md5(data):
     return hashlib.md5(data).hexdigest().upper()
