@@ -21,7 +21,7 @@ except ImportError:
     
     
 def nmap_parse_ports(ports_string):
-    return [ e.split("/")[0] for e in a.split("\n") ]
+    return [ e.split("/")[0] for e in ports_string.split("\n") ]
 
 
 def nmap_parse_unknown_service(data_str):
