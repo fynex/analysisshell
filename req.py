@@ -4,8 +4,12 @@ def single_send(ip, port, data, receive_size=2048, timeout_sec=5):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM); s.connect((ip,port))
     s.settimeout(timeout_sec)
     s.sendall(data)
-    response = s.recv(receive_size)
-    s.close()
+    try:
+        response = s.recv(receive_size)
+    except socket.timeout:
+        return None
+    finally:
+        s.close()
     
     return response
 
