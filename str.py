@@ -2,6 +2,7 @@ import hashlib
 import struct
 import base64
 import urllib
+import sys
 
 try:
     import keystone
