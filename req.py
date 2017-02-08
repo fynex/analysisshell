@@ -12,5 +12,5 @@ def single_send(ip, port, data, receive_size=2048, timeout_sec=5):
 def mass_send(ip_list, port_list, data, receive_size=2048, timeout_sec=5):
     for ip in ip_list:
         for port in port_list:
-            print single_send(ip, port, data, receive_size)
+            print single_send(ip, int(port), data, receive_size)
             
