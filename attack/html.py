@@ -1,12 +1,12 @@
 
 def clickjacking_poc(url):
-    """<!DOCTYPE html>
+    return """<!DOCTYPE html>
     <html>
     <body>
 
-    <iframe src="url">
+    <iframe src="{}">
       <p>Your browser does not support iframes.</p>
     </iframe>
 
     </body>
-    </html>""".format(url)
+</html>""".format(url)
