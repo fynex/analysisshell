@@ -16,6 +16,7 @@ import pkgutil
 import req
 import backdoor.unix
 import attack.php
+import attack.html
 
 
 # def load_all_modules_from_dir(dirname):
