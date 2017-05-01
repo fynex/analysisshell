@@ -14,6 +14,7 @@ import obfus
 import file
 import pkgutil
 import req
+import give
 import backdoor.unix
 import attack.php
 import attack.html
