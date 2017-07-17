@@ -87,7 +87,11 @@ def str2bytearray(string):
     for e in string:
         s += hex(ord(e)) + ", "
 
-    s = s[:-2] + "}"
+    if "0x0," in s:
+        print "[!] ERROR null byte in byte array!"
+        return ""
+
+    s = s + "0x0};"
 
     return s
 
@@ -145,6 +149,7 @@ def assemble_x86_64(code):
         return None
 
 
+
 def enc_dec_otp(string, key):
     if len(string) != len(key):
         return ""
@@ -154,5 +159,20 @@ def enc_dec_otp(string, key):
     res = [chr(ord(string[i]) ^ ord(key[i])) for i in size]
 
     return "".join(res)
+
+
+def enc_xor(string, keybyte):
+    res_str = ""
+
+    for c in string:
+        xored_val = ord(c) ^ keybyte
+
+        if xored_val == 0:
+            print "[!] ERROR xored value is a null byte!"
+            return ""
+
+        res_str += chr(xored_val)
+
+    return res_str
 
 
