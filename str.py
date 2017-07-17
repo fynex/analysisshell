@@ -19,17 +19,17 @@ except ImportError:
     print "sudo pip install capstone"
     sys.exit(-1)
 
-    
-    
+
+
 def nmap_parse_ports(ports_string):
     return [ e.split("/")[0] for e in ports_string.split("\n") ]
 
 
 def nmap_parse_unknown_service(data_str):
     return data_str.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ").replace("\\0","")
-    
 
-    
+
+
 
 def hash_md5(data):
     return hashlib.md5(data).hexdigest().upper()
@@ -76,6 +76,20 @@ def hexstr2ascii(data):
         data = data[2:]
 
     return data.decode("hex")
+
+
+def str2bytearray(string):
+    if not string:
+        return ""
+
+    s = "char byte_array[] = {"
+
+    for e in string:
+        s += hex(ord(e)) + ", "
+
+    s = s[:-2] + "}"
+
+    return s
 
 
 def disass_x86_64(data, start_addr=0x1000):
