@@ -77,6 +77,12 @@ def hexstr2ascii(data):
 
     return data.decode("hex")
 
+def hex_enc(data):
+    return data.encode("hex")
+
+def hex_dec(data):
+    return data.decode("hex")
+
 
 def str2bytearray(string):
     if not string:
@@ -150,7 +156,7 @@ def assemble_x86_64(code):
 
 
 
-def enc_dec_otp(string, key):
+def otp(string, key):
     if len(string) != len(key):
         return ""
 
@@ -161,7 +167,7 @@ def enc_dec_otp(string, key):
     return "".join(res)
 
 
-def enc_xor(string, keybyte):
+def xor_byte(string, keybyte):
     res_str = ""
 
     for c in string:
