@@ -84,6 +84,10 @@ def hex_dec(data):
     return data.decode("hex")
 
 
+def split_into_slices(coll, num):
+    return [coll[i:i+num] for i in range(0, len(coll), num)]
+
+
 def str2bytearray(string):
     if not string:
         return ""
