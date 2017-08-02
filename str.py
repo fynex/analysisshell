@@ -20,7 +20,7 @@ except ImportError:
     sys.exit(-1)
 
 
-
+# tool.nmap
 def nmap_parse_ports(ports_string):
     return [ e.split("/")[0] for e in ports_string.split("\n") ]
 
@@ -29,8 +29,7 @@ def nmap_parse_unknown_service(data_str):
     return data_str.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ").replace("\\0","")
 
 
-
-
+# hash
 def hash_md5(data):
     return hashlib.md5(data).hexdigest().upper()
 
@@ -43,11 +42,15 @@ def hash_sha224(data):
     return hashlib.sha224(data).hexdigest().upper()
 
 
+def hash_sha256(data):
+    return hashlib.sha256(data).hexdigest().upper()
+
+
 def hash_sha512(data):
     return hashlib.sha512(data).hexdigest().upper()
 
 
-
+# b64
 def base64_dec(data):
     return base64.b64decode(data)
 
@@ -56,7 +59,15 @@ def base64_enc(data):
     return base64.b64encode(data)
 
 
+def b64dec(data):
+    return base64_dec(data)
 
+
+def b64enc(data):
+    return base64_enc(data)
+
+
+# url
 def url_enc(in_str):
     return urllib.quote_plus(in_str)
 
@@ -64,6 +75,7 @@ def url_dec(in_str):
     return urllib.unquote(in_str)
 
 
+# path
 def path_win2unix(str_path):
     return "/".join( str_path.split("\\") )
 
@@ -71,6 +83,7 @@ def path_unix2win(str_path):
     return "\\".join( str_path.split("/") )
 
 
+# hex
 def hexstr2ascii(data):
     if data.startswith("0x"):
         data = data[2:]
@@ -83,12 +96,12 @@ def hex_enc(data):
 def hex_dec(data):
     return data.decode("hex")
 
-
+# split
 def split_into_slices(coll, num):
     return [coll[i:i+num] for i in range(0, len(coll), num)]
 
-
-def str2bytearray(string):
+# code
+def c_bytearray(string):
     if not string:
         return ""
 
@@ -105,7 +118,7 @@ def str2bytearray(string):
 
     return s
 
-
+# disassemble
 def disass_x86_64(data, start_addr=0x1000):
     res = ""
 
@@ -129,7 +142,7 @@ def disass_x86_32(data, start_addr=0x1000):
 
     return res
 
-
+# assemble
 def assemble_x86_32(code):
     try:
         ks = keystone.Ks(keystone.KS_ARCH_X86,
@@ -159,7 +172,7 @@ def assemble_x86_64(code):
         return None
 
 
-
+# crypt
 def otp(string, key):
     if len(string) != len(key):
         return ""
