@@ -12,7 +12,7 @@ import num
 import str
 import obfus
 import file
-import dns
+import mdns as dns
 import pkgutil
 import req
 import give
