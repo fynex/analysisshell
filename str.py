@@ -3,6 +3,7 @@ import struct
 import base64
 import urllib
 import sys
+import re
 
 try:
     import keystone
@@ -27,6 +28,13 @@ def nmap_parse_ports(ports_string):
 
 def nmap_parse_unknown_service(data_str):
     return data_str.replace("\.",".").replace("\\x20"," ").replace("SF:", "").replace("\\n", "\n").replace("\\x08"," ").replace("\\0","")
+
+
+# filter
+def grep(string, data):
+    for line in data.split("\n"):
+        if re.search(string, line):
+            print(line)
 
 
 # hash
