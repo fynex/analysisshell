@@ -36,7 +36,8 @@ import attack.html
 
 def load(a_module, target_type):
     functions_list = [o for o in getmembers(str) if isfunction(o[1])]
-    for name, func in function_list:
+    
+    for name, func in functions_list:
         curse(target_type, name, func)
 
 
