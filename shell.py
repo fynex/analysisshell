@@ -4,12 +4,15 @@
 import sys
 import os
 
+from inspect import getmembers, isfunction
+from forbiddenfruit import curse
+
 # Add local path to python path list
 path_exec_dir = os.path.dirname( os.path.realpath(__file__) )
 sys.path.append(path_exec_dir)
 
 import num
-import str
+import st
 import obfus
 import file
 import mdns as dns
@@ -30,6 +33,13 @@ import attack.html
 #             print module
 #
 # bd = load_all_modules_from_dir("bd")
+
+def load(a_module, target_type):
+    functions_list = [o for o in getmembers(str) if isfunction(o[1])]
+    for name, func in function_list:
+        curse(target_type, name, func)
+
+
 
 print """
 [*] Usage
