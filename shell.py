@@ -34,11 +34,11 @@ import attack.html
 #
 # bd = load_all_modules_from_dir("bd")
 
-def load(a_module, target_type):
-    functions_list = [o for o in getmembers(str) if isfunction(o[1])]
+def load(a_module, data_type):
+    functions_list = [o for o in getmembers(a_module) if isfunction(o[1])]
     
     for name, func in functions_list:
-        curse(target_type, name, func)
+        curse(data_type, name, func)
 
 
 
