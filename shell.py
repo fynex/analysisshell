@@ -57,4 +57,5 @@ print """
     * dns
     * req
 """
-
+load(st, str)
+load(num, int)
