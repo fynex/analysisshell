@@ -60,7 +60,17 @@ def hash_sha512(data):
 
 # b64
 def base64_dec(data):
-    return base64.b64decode(data)
+    for i in xrange(3):
+        try:
+            if i != 0:
+                print("[i] Appended {}x '='".format(i))
+
+            return base64.b64decode(data)
+        except TypeError:
+            data += "="
+
+    return None
+
 
 
 def base64_enc(data):
