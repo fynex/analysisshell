@@ -1,7 +1,7 @@
 # analysisshell
 
-This little tool is a analysis shell embedded in ipython to manipulate data. 
-I developed this for binary analysis and penetration testing. I just want to have a fast tool to do data transformations
+This little tool is a analysis shell embedded in ipython to manipulate data.
+I developed this for binary analysis and penetration testing. The idea was to have a fast tool to do data transformations
 within the ipython environment and be able to work with the transformed results. 
 
 # How to use it
