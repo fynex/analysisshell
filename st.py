@@ -31,9 +31,9 @@ def nmap_parse_unknown_service(data_str):
 
 
 # filter
-def grep(string, data):
+def grep(data, search_str):
     for line in data.split("\n"):
-        if re.search(string, line):
+        if re.search(search_str, line):
             print(line)
 
 
