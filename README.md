@@ -41,7 +41,7 @@ A simple example would be a string, which should be hashed. You do this like thi
 "A string".hash_sha512()
 ```
 I used the great forbiddenfruit module to be able to monkey patch the string class (for reasons of convenience). 
-If you want to use a monkey patched module, you could only import the st.py module and do the following:
+If you don't want to use a monkey patched module, you could only import the st.py module and do the following:
 
 ```python
 st.hash_sha512("A string")
