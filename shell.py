@@ -41,21 +41,7 @@ def load(a_module, data_type):
         curse(data_type, name, func)
 
 
-
-print """
-[*] Usage
-    The module describes the input value. So if you have
-    an number and you want to parse it into a reversed
-    binary string, you search in the module "number".
-
-    Usable modules:
-    * num
-    * str
-    * obfus
-    * file
-    * bd
-    * dns
-    * req
-"""
 load(st, str)
 load(num, int)
+
+print("[*] Analysis Shell Loaded")
