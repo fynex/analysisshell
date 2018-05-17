@@ -118,6 +118,17 @@ def hex_dec(data):
 def split_into_slices(coll, num):
     return [coll[i:i+num] for i in range(0, len(coll), num)]
 
+
+# change data
+def prefix_lines(string, prefix):
+    res = ""
+
+    for line in string.split("\n"):
+        res += prefix + line + "\n"
+
+    return res
+
+
 # code
 def c_bytearray(string):
     if not string:
