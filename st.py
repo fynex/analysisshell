@@ -2,6 +2,7 @@ import hashlib
 import struct
 import base64
 import urllib
+import string
 import sys
 import re
 
@@ -32,9 +33,20 @@ def nmap_parse_unknown_service(data_str):
 
 # filter
 def grep(data, search_str):
+    filtered_lines = []
+
     for line in data.split("\n"):
         if re.search(search_str, line):
-            print(line)
+            #print(line)
+            #data += line + "\n"
+            filtered_lines.append(line)
+
+    return filtered_lines
+
+
+def filter_printable(a_string):
+    return filter(lambda x: x in string.printable, a_string)
+
 
 
 # hash
@@ -127,6 +139,7 @@ def prefix_lines(string, prefix):
         res += prefix + line + "\n"
 
     return res
+
 
 
 # code
