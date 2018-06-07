@@ -22,6 +22,11 @@ except ImportError:
     sys.exit(-1)
 
 
+# util
+def size(s):
+    return len(s)
+
+
 # tool.nmap
 def nmap_parse_ports(ports_string):
     return [ e.split("/")[0] for e in ports_string.split("\n") ]

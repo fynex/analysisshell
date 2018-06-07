@@ -13,6 +13,7 @@ sys.path.append(path_exec_dir)
 
 import num
 import st
+import l
 import obfus
 import file
 import mdns as dns
@@ -36,12 +37,13 @@ import attack.html
 
 def load(a_module, data_type):
     functions_list = [o for o in getmembers(a_module) if isfunction(o[1])]
-    
+
     for name, func in functions_list:
         curse(data_type, name, func)
 
 
 load(st, str)
 load(num, int)
+load(l, list)
 
 print("[*] Analysis Shell Loaded")
