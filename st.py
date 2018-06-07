@@ -53,6 +53,21 @@ def filter_printable(a_string):
     return filter(lambda x: x in string.printable, a_string)
 
 
+def extract_one(st, start, end):
+    pattern = start + "(.*?)" + end
+    match   = re.search(pattern, st)
+
+    if match != None:
+        return match.group(1)
+
+    return ""
+
+
+def extract_all(st, start, end):
+    pattern = start + "(.*?)" + end
+
+    return re.findall(pattern, st)
+
 
 # hash
 def hash_md5(data):
@@ -94,11 +109,11 @@ def base64_enc(data):
     return base64.b64encode(data)
 
 
-def b64dec(data):
+def b64_dec(data):
     return base64_dec(data)
 
 
-def b64enc(data):
+def b64_enc(data):
     return base64_enc(data)
 
 
